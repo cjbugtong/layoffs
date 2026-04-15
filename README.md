@@ -40,8 +40,8 @@ I also calculated rolling totals to see how layoffs increased over time.
 
 ## Files in This Project
 
-* `data_cleaning.sql` – SQL queries used to clean the dataset
-* `exploratory_data_analysis.sql` – SQL queries for analysis
+* `01_data_cleaning.sql` – SQL queries used to clean the dataset
+* `02_exploratory_data_analysis.sql` – SQL queries for analysis
 
 ---
 
