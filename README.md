@@ -1,88 +1,67 @@
-# Layoffs Data Cleaning Project
+# Layoffs Data Analysis (SQL)
 
-## What this project is about
+## About This Project
 
-I cleaned a layoffs dataset using SQL to make it usable for analysis. The raw data had duplicates, messy text values, inconsistent formats, and missing information. I fixed those issues step by step and created a clean version of the dataset.
+In this project, I worked with a layoffs dataset and used SQL to clean the data and explore it. The main goal was to make the data more reliable and then find useful insights from it.
 
-## What I aimed to do
+---
 
-* Remove duplicate rows
-* Fix inconsistent text values
-* Handle missing or blank data
-* Convert columns into the correct format
-* Keep the dataset clean and reliable for analysis
+## What I Did
 
-## About the dataset
+### Data Cleaning
 
-The dataset includes company layoffs information such as:
+Before doing any analysis, I cleaned the dataset to fix common issues. This includes:
 
-* Company name
-* Location
-* Industry
-* Total employees laid off
-* Percentage laid off
-* Date
-* Company stage
-* Country
-* Funds raised
+* Removing duplicate rows
+* Handling missing values
+* Standardizing formats (like dates and text)
+* Fixing inconsistent entries
 
-## How I cleaned the data
+This step is important because clean data leads to more accurate results.
 
-### 1. Created a staging table
+---
 
-I first copied the raw dataset into a new table. This step protects the original data in case something goes wrong during cleaning.
+### Exploratory Data Analysis (EDA)
 
-### 2. Removed duplicates
+After cleaning the data, I used SQL to explore it and answer some key questions.
 
-I used a window function called `ROW_NUMBER()` to find duplicate rows. After identifying them, I deleted the extra copies and kept only unique records.
+Some of the things I looked at:
 
-### 3. Standardized values
+* Which companies had the most layoffs
+* Which industries were most affected
+* Layoffs by country
+* Trends over time (yearly and monthly)
+* Companies that laid off 100% of their employees
+* Top companies with the highest layoffs each year
 
-Some columns had inconsistent entries:
+I also calculated rolling totals to see how layoffs increased over time.
 
-* I removed extra spaces in company names
-* I grouped similar industry values like “Crypto%” into “Crypto”
-* I fixed country names like “United States.” into “United States”
+---
 
-### 4. Fixed the date format
+## Files in This Project
 
-The date column was stored as text. I converted it into a proper SQL date format so it can be used in analysis.
+* `data_cleaning.sql` – SQL queries used to clean the dataset
+* `exploratory_data_analysis.sql` – SQL queries for analysis
 
-### 5. Handled missing data
+---
 
-* I checked for NULL and blank values
-* I replaced blank values with NULL
-* I filled missing industry values using other rows from the same company
-* I removed rows where key layoff data was missing
+## What I Learned
 
-### 6. Final cleanup
+* How important data cleaning is before doing any analysis
+* How to use SQL for grouping, filtering, and aggregations
+* How to use window functions like `DENSE_RANK()` and rolling totals
+* How to break down a dataset to find patterns and trends
 
-I removed temporary columns used during cleaning and reviewed the dataset to make sure everything looked correct.
+---
 
-## Tools I used
+## How to Run
 
-* MySQL
-* Window functions like `ROW_NUMBER()`
-* Common Table Expressions (CTE)
+1. Load the dataset into your SQL database
+2. Run the cleaning script first
+3. Then run the EDA queries
 
-## What I learned
+---
 
-* Cleaning data takes time but makes analysis easier
-* Small inconsistencies can affect results
-* SQL has strong tools for handling messy data
-* It helps to always work on a copy of your data first
+## Notes
 
-## How to run this
-
-1. Load the raw dataset into your SQL database
-2. Run the SQL script step by step
-3. Check the output after each step
-4. Use the cleaned table for your analysis
-
-## Final output
-
-The cleaned dataset is stored in:
-
-* `layoffs_staging2`
-
-You can now use this table for analysis, dashboards, or further projects.
+This project is part of my practice in improving my SQL and data analysis skills.
